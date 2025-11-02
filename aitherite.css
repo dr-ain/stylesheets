@@ -35,44 +35,63 @@ body {
     gap: 6px;
 }
 
-/* Panel V2 with adjustment */
-.panelV2 {
-    max-width: calc(100vw - 80px);
-}
+@supports selector(:has(.blank)) {
+    /* panelV2 adjustment */
+    .panelV2 {
+        max-width: calc(100vw - 80px);
+    }
+    .user-torrents__agent, .user-active__agent {
+        font-size: 10px !important;
+        word-wrap: break-word !important;
+        max-width: 68px !important;
+        color: #ccc;
+    }
 
-/* Search Filters */
-/* Hide unnecessary checkboxes: Type */
-.form__fieldset:has(input[wire\:model\.live="typeIds"])
-    .form__fieldset-checkbox-container p:has(
-        /* input[value="1"],   /* Full Disc */
-        /* input[value="2"],   /* Remux */
-        /* input[value="3"],   /* Encode */
-        /* input[value="4"],   /* WEB-DL */
-        /* input[value="5"],   /* WEBRip */
-        /* input[value="6"],   /* HDTV */
-        /* input[value="7"],   /* Other */
-        /* input[value="10"],  /* Movie Pack */
-        input[value="20"],  /* Music - General */
-        input[value="29"],  /* Blues */
-        input[value="30"],  /* Classical */
-        input[value="31"],  /* Electronic */
-        input[value="32"],  /* Hip-Hop / Rap */
-        input[value="33"],  /* Jazz &amp; Funk */
-        input[value="34"],  /* Latin */
-        input[value="35"],  /* Pop */
-        input[value="36"],  /* Rock */
-        input[value="16"]   /* Test */
-    ) {
-    display: none;
-}
-/* Hide unnecessary checkboxes: Primary Language */
-/* Hide all rows */
-.form__fieldset:has(input[wire\:model\.live="primaryLanguageNames"])
-  .form__fieldset-checkbox-container p {
-  display: none;
-}
-/* Show only the specified row(s) */
-.form__fieldset:has(input[wire\:model\.live="primaryLanguageNames"])
-  .form__fieldset-checkbox-container p:has(input[value="en"]) {
-  display: block;
+    /* Search filter margin adjustments */    
+    .torrent-search__filters {
+        margin: 0 max(12px, 45vw - 800px);
+    }
+    .torrent-search__filters:has(+.torrent-search__results .torrent-search--grouped__results) {
+        margin: 0 calc(-1 * max(0px, 45vw - 800px) + max(12px, 45vw - 700px))
+    }
+
+    /* Search Filters */
+    .form__fieldset-checkbox-container {
+        height: 224px;
+    }
+
+    /* Hide unnecessary checkboxes: Type */
+    .form__fieldset:has(input[wire\:model\.live="typeIds"])
+        .form__fieldset-checkbox-container p:has(
+            /* input[value="1"],   /* Full Disc */
+            /* input[value="2"],   /* Remux */
+            /* input[value="3"],   /* Encode */
+            /* input[value="4"],   /* WEB-DL */
+            /* input[value="5"],   /* WEBRip */
+            /* input[value="6"],   /* HDTV */
+            /* input[value="7"],   /* Other */
+            /* input[value="10"],  /* Movie Pack */
+            input[value="20"],  /* Music - General */
+            input[value="29"],  /* Blues */
+            input[value="30"],  /* Classical */
+            input[value="31"],  /* Electronic */
+            input[value="32"],  /* Hip-Hop / Rap */
+            input[value="33"],  /* Jazz &amp; Funk */
+            input[value="34"],  /* Latin */
+            input[value="35"],  /* Pop */
+            input[value="36"],  /* Rock */
+            input[value="16"]   /* Test */
+        ) {
+        display: none;
+    }
+
+    /* Hide unnecessary checkboxes: Primary Language */
+    .form__fieldset:has(input[wire\:model\.live="primaryLanguageNames"]) /* Hide all rows */
+      .form__fieldset-checkbox-container p {
+      display: none;
+    }
+    .form__fieldset:has(input[wire\:model\.live="primaryLanguageNames"]) /* Show only the specified row(s) */
+      .form__fieldset-checkbox-container p:has(input[value="en"]) {
+      display: block;
+    }
 }
