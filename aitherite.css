@@ -1,9 +1,5 @@
-:root {
-    --text-color: #cccccc;
-}
-
 body {
-    background: #303030 url(data:image/svg+xml;base64,PD94bW=);
+    background: #303030; /* background: #303030 url(data:image/svg+xml;base64,PD94bW=); */
     background-size: 128px auto;
 }
 
@@ -11,13 +7,11 @@ body {
 .special-event-alert {
     padding: 5px;
 }
-
 .special-event-alert > .alert__content {
     width: 75%;
     display: flex;
     justify-content: space-around;
 }
-
 @media screen and (max-width: 512px) {
     .special-event-alert > .alert__content {
         width: 98%;
@@ -29,22 +23,56 @@ body {
 .chatbox-message__content > div > br:nth-of-type(n+2) {
     display: none;
 }
-
 /* More compact chat bubbles */
 .chatbox-message__content {
     font-size: 14px;
     padding: 0px 8px 4px 8px;
 }
-
 .chatbox-message__address {
     font-size: 12px;
 }
-
 .chatroom__messages {
     gap: 6px;
 }
 
 /* Panel V2 with adjustment */
 .panelV2 {
-    max-width: calc(100vw - 20px);
+    max-width: calc(100vw - 80px);
+}
+
+/* Search Filters */
+/* Hide unnecessary checkboxes: Type */
+.form__fieldset:has(input[wire\:model\.live="typeIds"])
+    .form__fieldset-checkbox-container p:has(
+        /* input[value="1"],   /* Full Disc */
+        /* input[value="2"],   /* Remux */
+        /* input[value="3"],   /* Encode */
+        /* input[value="4"],   /* WEB-DL */
+        /* input[value="5"],   /* WEBRip */
+        /* input[value="6"],   /* HDTV */
+        /* input[value="7"],   /* Other */
+        /* input[value="10"],  /* Movie Pack */
+        input[value="20"],  /* Music - General */
+        input[value="29"],  /* Blues */
+        input[value="30"],  /* Classical */
+        input[value="31"],  /* Electronic */
+        input[value="32"],  /* Hip-Hop / Rap */
+        input[value="33"],  /* Jazz &amp; Funk */
+        input[value="34"],  /* Latin */
+        input[value="35"],  /* Pop */
+        input[value="36"],  /* Rock */
+        input[value="16"]   /* Test */
+    ) {
+    display: none;
+}
+/* Hide unnecessary checkboxes: Primary Language */
+/* Hide all rows */
+.form__fieldset:has(input[wire\:model\.live="primaryLanguageNames"])
+  .form__fieldset-checkbox-container p {
+  display: none;
+}
+/* Show only the specified row(s) */
+.form__fieldset:has(input[wire\:model\.live="primaryLanguageNames"])
+  .form__fieldset-checkbox-container p:has(input[value="en"]) {
+  display: block;
 }
