@@ -55,15 +55,15 @@ body {
     main.page__user-earning--index {
         margin: 0 max(0px, 10vw - 64px, 25vw - 512px, 45vw - 944px)
     }
-    .sidebar2 {
+    main.page__user-earning--index .sidebar2 {
         flex-direction: column-reverse;
     }
-    .sidebar2 > aside {
+    main.page__user-earning--index .sidebar2 > aside {
         width: 100%;
         max-width: max-content;
         margin-left: calc(100% - 300px);
     }
-    .sidebar2 > div {
+    main.page__user-earning--index .sidebar2 > div {
         width: 100%;
         max-width: 100%;
     }
