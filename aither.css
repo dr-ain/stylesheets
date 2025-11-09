@@ -42,43 +42,43 @@ body {
 }
 
 /* Bonus Point-Page Adjustments: margin, direction, etc. */
-main.page__user-earning--index {
-    margin: 0 max(0px, 10vw - 64px, 25vw - 512px, 45vw - 944px)
-}
 main.page__user-earning--index .sidebar2 {
     flex-direction: column-reverse;
 }
 .sidebar2 > aside {
     gap: 0px;
 }
-main.page__user-earning--index > article > div > section:nth-of-type(1) {
-    margin-top: -252px;
-    margin-right: 320px;
-}
-main.page__user-earning--index .sidebar2 > aside {
-    width: 100%;
-    max-width: max-content;
-    margin-left: calc(100% - 300px);
-}
-main.page__user-earning--index .sidebar2 > div {
-    width: 100%;
-    max-width: 100%;
-}
-main.page__user-earning--index > article > aside > section:nth-of-type(1) .panel__heading {
-    display: flex;
-    justify-content: center;
-}
-main.page__user-earning--index > article > aside > section:first-of-type > div {
-    padding: 6px 12px;
-    display: flex;
-    justify-content: center;
-}
-main.page__user-earning--index > article > aside > section:last-of-type > :first-child {
-    display: none;
-}
-main.page__user-earning--index > article > aside > section:last-of-type > :last-child {
-    width: 300px;
-    min-width: 100%;
+@media (min-width: 832px) {
+    main.page__user-earning--index > article > aside > section:nth-of-type(1) .panel__heading {
+        display: flex;
+        justify-content: center;
+    }
+    main.page__user-earning--index > article > aside > section:first-of-type > div {
+        padding: 6px 12px;
+        display: flex;
+        justify-content: center;
+    }
+    main.page__user-earning--index > article > aside > section:last-of-type > :first-child {
+        display: none;
+    }
+    main.page__user-earning--index {
+        margin: 0 max(0px, 10vw - 64px, 25vw - 512px, 45vw - 944px)
+    }
+    main.page__user-earning--index .sidebar2 > aside {
+        max-width: max-content;
+        margin-left: calc(100% - 300px);
+    }
+    main.page__user-earning--index > article > aside > section:last-of-type > :last-child {
+        width: 300px;
+        min-width: 100%;
+    }
+    main.page__user-earning--index .sidebar2 > div {
+        max-width: 100%;
+    }
+    main.page__user-earning--index > article > div > section:nth-of-type(1) {
+        margin-top: -252px;
+        margin-right: 320px;
+    }
 }
 
 /* Search filter margin adjustments */    
