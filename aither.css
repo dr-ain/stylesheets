@@ -3,6 +3,11 @@ body {
     background-size: 128px auto;
 }
 
+/* Remove the 12px gap intended for the scrollbar */
+::-webkit-scrollbar:vertical {
+    width: 0px;
+}
+
 /* Make the Global Freeleech bar more compact */
 .special-event-alert {
     padding: 5px;
@@ -36,7 +41,65 @@ body {
     gap: 6px;
 }
 
-@supports selector(:has(.blank)) {
+/* Bonus Point-Page Adjustments: margin, direction, etc. */
+main.page__user-earning--index {
+    margin: 0 max(0px, 10vw - 64px, 25vw - 512px, 45vw - 944px)
+}
+main.page__user-earning--index .sidebar2 {
+    flex-direction: column-reverse;
+}
+.sidebar2 > aside {
+    gap: 0px;
+}
+main.page__user-earning--index > article > div > section:nth-of-type(1) {
+    margin-top: -252px;
+    margin-right: 320px;
+}
+main.page__user-earning--index .sidebar2 > aside {
+    width: 100%;
+    max-width: max-content;
+    margin-left: calc(100% - 300px);
+}
+main.page__user-earning--index .sidebar2 > div {
+    width: 100%;
+    max-width: 100%;
+}
+main.page__user-earning--index > article > aside > section:nth-of-type(1) .panel__heading {
+    display: flex;
+    justify-content: center;
+}
+main.page__user-earning--index > article > aside > section:first-of-type > div {
+    padding: 6px 12px;
+    display: flex;
+    justify-content: center;
+}
+main.page__user-earning--index > article > aside > section:last-of-type > :first-child {
+    display: none;
+}
+main.page__user-earning--index > article > aside > section:last-of-type > :last-child {
+    width: 300px;
+    min-width: 100%;
+}
+
+/* Search filter margin adjustments */    
+.torrent-search__filters {
+    margin: 0 max(12px, 45vw - 800px);
+}
+
+/* Search Filter Type box-height */
+.form__fieldset-checkbox-container {
+    height: 224px;
+}
+
+/* Reduce client name font-size in tables */
+.user-torrents__agent, .user-active__agent {
+    font-size: 10px !important;
+    word-wrap: break-word !important;
+    max-width: 68px !important;
+    color: #ccc;
+}
+
+@supports selector(:has(*)) {
     /* panelV2 adjustment */
     main.page__torrent--index .panelV2,
     main.page__user-torrents--index .panelV2,
@@ -44,46 +107,30 @@ body {
         max-width: 98vw;
         margin: 0 max(12px, 45vw - 800px);
     }
-    .user-torrents__agent, .user-active__agent {
-        font-size: 10px !important;
-        word-wrap: break-word !important;
-        max-width: 68px !important;
-        color: #ccc;
+
+    /* panelV2 adjustments - when Grouping-layout is used */
+    main.page__torrent--index:has(.panelV2 .torrent-search--grouped__results) {
+        margin: 0;
     }
 
-    /* Bonus Point-Page Adjustments: margin, direction, etc. */
-    main.page__user-earning--index {
-        margin: 0 max(0px, 10vw - 64px, 25vw - 512px, 45vw - 944px)
-    }
-    main.page__user-earning--index .sidebar2 {
-        flex-direction: column-reverse;
-    }
-    main.page__user-earning--index .sidebar2 > aside {
-        width: 100%;
-        max-width: max-content;
-        margin-left: calc(100% - 300px);
-    }
-    main.page__user-earning--index .sidebar2 > div {
-        width: 100%;
-        max-width: 100%;
-    }
-    main.page__user-earning--index > article > aside > section:first-of-type > div {
-        background-color: rgba(255,0,0,0.001);
-        padding: 6px 12px;
-    }
-    main.page__user-earning--index > article > aside > section:last-of-type > :first-child {
-        width: 300px;
-        min-width: 100%;
+    /* Reduced padding of grouped items */
+    main.page__torrent--index .torrent-search__results > .torrent-search--grouped__results {
+        padding: 0px 5px;
     }
 
-    /* Search filter margin adjustments */    
-    .torrent-search__filters {
+    /* Transparent item-heading on pinned items */
+    article.torrent-search--grouped__result:has(i[title="Sticky"]) 
+      > header.torrent-search--grouped__header {
+        background-color: oklab(0.3 -0.01 -0.02);
+    }
+
+    /* Blue tint on pinned items */
+    article.torrent-search--grouped__result:has(i[title="Sticky"]) {
+        background-color: oklab(0.14 -0.02 -0.03 / 0.5);
+    }
+
+    .torrent-search__filters:has(+.torrent-search__results .torrent-search--grouped__results) {
         margin: 0 max(12px, 45vw - 800px);
-    }
-
-    /* Search Filter Type box-height */
-    .form__fieldset-checkbox-container {
-        height: 224px;
     }
 
     /* Hide unnecessary checkboxes: Type */
