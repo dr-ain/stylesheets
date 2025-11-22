@@ -129,6 +129,7 @@ main.page__user-earning--index .sidebar2 {
         background-color: oklab(0.14 -0.02 -0.03 / 0.5);
     }
 
+    /* Adjust search filter margin to match the width of results panel */
     .torrent-search__filters:has(+.torrent-search__results .torrent-search--grouped__results) {
         margin: 0 max(12px, 45vw - 800px);
     }
@@ -166,5 +167,11 @@ main.page__user-earning--index .sidebar2 {
     .form__fieldset:has(input[wire\:model\.live="primaryLanguageNames"]) /* Show only the specified row(s) */
       .form__fieldset-checkbox-container p:has(input[value="en"]) {
       display: block;
+    }
+
+    /* Similar Torrent Index Pages */
+    /* Remove margin on search filter to match the width of results panel */
+    main.page__torrent-similar--index .similar-torrents__filters {
+        margin: 0;
     }
 }
