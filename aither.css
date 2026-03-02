@@ -175,3 +175,9 @@ main.page__user-earning--index .sidebar2 {
         margin: 0;
     }
 }
+
+/* Pending torrents table */
+/* Force no wrap on "Created at" */
+main.page__torrent-pending--index table.data-table td:nth-child(6) {
+    white-space: nowrap;
+}
